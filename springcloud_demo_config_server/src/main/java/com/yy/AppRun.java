@@ -2,10 +2,7 @@ package com.yy;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @EnableConfigServer
 @SpringBootApplication
