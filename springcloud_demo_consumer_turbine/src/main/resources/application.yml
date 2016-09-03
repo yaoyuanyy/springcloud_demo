@@ -1,0 +1,36 @@
+eureka:
+
+  instance:
+
+    leaseRenewalIntervalInSeconds: 10 #心跳间隔
+
+  client:
+
+    registerWithEureka: false #注册本工程为服务
+
+    fetchRegistry: false
+
+    serviceUrl:
+
+      defaultZone: http://localhost:1111/eureka/ #注册服务器地址
+
+server:
+  port:8989
+
+spring:
+  application:
+    name: turbine
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+
+turbine:
+
+  aggregator:
+
+    clusterConfig: RIBBON-CONSUMER,SERVICE1  #turbine监控的服务名称，可以多个
+
+  appConfig: ribbon-consumer,service1  #turbine监控的服务，可以有多个
+
+  clusterNameExpression: metadata['cluster']

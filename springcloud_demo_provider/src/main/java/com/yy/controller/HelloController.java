@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+
  
 @RestController
 public class HelloController {
@@ -17,11 +20,16 @@ public class HelloController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private DiscoveryClient client;
+    private DiscoveryClient discoveryClient;
+    
+    @Autowired
+    private EurekaClient eurekaClient;
 
     @RequestMapping(value = "/add" ,method = RequestMethod.GET)
     public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
-        ServiceInstance instance = client.getLocalServiceInstance();
+        ServiceInstance instance = discoveryClient.getLocalServiceInstance();
+      /*  InstanceInfo info = eurekaClient.getNextServerFromEureka("SERVICE2", false);
+        logger.info(info.getHomePageUrl());*/
         Integer r = a + b;
         logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
         return r;

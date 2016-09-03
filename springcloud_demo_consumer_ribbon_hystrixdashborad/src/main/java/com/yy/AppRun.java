@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 //@EnableHystrix包含@EnableCircuitBreaker
 @EnableHystrix 
 @EnableHystrixDashboard

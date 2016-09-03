@@ -16,13 +16,13 @@ public class ComputeService {
 
 	@HystrixCommand(fallbackMethod = "addServiceFallback")
 	public String addService() {
-		return restTemplate.getForEntity("http://SERVICE1/add?a=10&b=20", String.class).getBody();
-		/*int randomInt = random.nextInt(10);
+		//return restTemplate.getForEntity("http://SERVICE1/add?a=10&b=20", String.class).getBody();
+		int randomInt = random.nextInt(10);
 		if (randomInt < 8) { // 模拟调用失败情况
 			throw new RuntimeException("call dependency service fail.");
 		} else {
 			return "UserName:liaokailin;number:" + randomInt;
-		}*/
+		}
 	}
 
 	public String addServiceFallback() {
