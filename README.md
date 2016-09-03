@@ -21,6 +21,8 @@
 
 (10)springcloud_demo_config #配置仓库
 
+(11)springcloud_demo_gateway #服务网关
+
 测试用例：
 A、查看服务在注册中心的情况
    需启动项目(1)、(2)，访问注册中心地址：http://localhost:1111
@@ -48,13 +50,29 @@ C、测试断路器
    String.class).getBody();，打开原来被注释掉的代码：int randomInt = random.nextInt(10);············· randomInt;
    3、这时启动项目(4)，访问地址：http://localhost:3333/add，你会看到页面显示正常结果：数字；异常结果：error，如果没有断路器，
    异常结果会显示：call dependency service fail.这说明断路器起了作用
+   
 D、测试用feign断路器：与测试ribbon步骤一样，只不过feign是在类上加断路器，这样所有的方法用这一个断路器就可以了，而ribbon是在
    方法上加断路器，一个方法一个，各有优点，实际还要灵活使用
    
-E、
-F、
-G、
-H、
-I、
-J、
-K、
+E、测试hystrixdashborad，启动项目(1)、(2)、(4)、(6)，访问地址：http://localhost:3333/add,再访问地址：http://localhost:3335/hyst    rix，在页面的输入框中输入：http://localhost:3333/hystrix.stream，查看结果
+
+F、测试turbine，没有调通，启动项目(1)、(2)、(4)、(7)，都运行起来后，访问地址：http://localhost:8080/hystrix后，在输入框中输入
+   http://localhost:3333/turbine.stream?cluster=RIBBON-CONSUMER，点击"moniter stream"，显示：Unable to connect to Command Metric Stream.不知道为什么，就是不出现数据图，高手看见，请指点一下
+
+G、测试springcloud config server and client，启动项目(8),访问地址：http://localhost:7001/yy/prod/config-label-test，页面显示
+   {"name":"yy","profiles":["prod"],"label":"config-label-test","version":"662341f96e1b1d0e76e9aa37cd691865195af073","propertySources":[{"name":"https://github.com/yaoyuanyy/springcloud_demo.git/springcloud_demo_config/config-repo/yy-prod.properties","source":{"from":"git-prod-1.0s"}},{"name":"https://github.com/yaoyuanyy/springcloud_demo.git/springcloud_demo_config/config-repo/yy.properties","source":{"from":"git-default-1.0"}}]}
+   注意：config-label-test是git的一个分支，也可以访问master分支：http://localhost:7001/yy/prod/master，页面显示：
+   {"name":"yy","profiles":["prod"],"label":"master","version":"7713e3a021baa488c8e31b2b572f5b95f2e2773a","propertySources":[{"name":"https://github.com/yaoyuanyy/springcloud_demo.git/springcloud_demo_config/config-repo/yy-prod.properties","source":{"from":"git-prod-2.0s"}},{"name":"https://github.com/yaoyuanyy/springcloud_demo.git/springcloud_demo_config/config-repo/yy.properties","source":{"from":"git-default-2.0"}}]}
+   这就是分布式配置了，利用git实现天然的分布式
+   再启动项目(9)，访问地址：http://localhost:7002/from，页面显示结果：git-dev-2.0，这就获取到了master版本的配置内容，具体获取哪个版本的配置，通过在项目(9)的bootstrap.properties文件中配置：
+   spring.application.name=yy  
+   spring.cloud.config.profile=dev
+   spring.cloud.config.label=master
+   spring.cloud.config.uri=http://localhost:7001/
+   server.port=7002
+   上述配置的master版本，所以页面显示结果是master分支的内容：git-dev-2.0；如果配置的是config-label-test分支，所以页面显示结果是config-label-test分支的内容：git-prod-1.0s
+   
+H、测试服务网关zuul，网关相当与古代的关卡或现代的过滤器，本来我是苹果，我告诉网关，我是桃子，而网关告诉外界我是桃子，外界就会把    有关桃子的访问送到网关，网关再传给我，我把桃子吃掉，把桃核回应给外界，哈哈
+   启动项目(1)、(2)、(3)、(11)，访问地址：http://localhost:5555/api-a/add?a=1&b=2&accessToken=12，http://localhost:5555/api-a-url/add?a=1&b=2&accessToken=12，http://localhost:5555/api-b/add?a=1&b=2&accessToken=12
+   
+这里只是简单的说下项目启动，网上很多没有说这个，新手可以看看，入门吧，详细的说明会在csdn上
