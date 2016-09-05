@@ -1,36 +1,35 @@
-eureka:
+info:
+  component: Turbine
 
-  instance:
-
-    leaseRenewalIntervalInSeconds: 10 #心跳间隔
-
-  client:
-
-    registerWithEureka: false #注册本工程为服务
-
-    fetchRegistry: false
-
-    serviceUrl:
-
-      defaultZone: http://localhost:1111/eureka/ #注册服务器地址
+PREFIX:
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
 
 server:
-  port:8989
+  port: ${PORT:8989}
 
+management:
+  port: 8990
+
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: 'OFF'
+    # org.springframework.integration: DEBUG
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+
+---
 spring:
-  application:
-    name: turbine
-  cloud:
-    config:
-      enabled: true
-      uri: http://localhost:8888
-
-turbine:
-
-  aggregator:
-
-    clusterConfig: RIBBON-CONSUMER,SERVICE1  #turbine监控的服务名称，可以多个
-
-  appConfig: ribbon-consumer,service1  #turbine监控的服务，可以有多个
-
-  clusterNameExpression: metadata['cluster']
+  profiles: cloud
+management:
+  port: -1

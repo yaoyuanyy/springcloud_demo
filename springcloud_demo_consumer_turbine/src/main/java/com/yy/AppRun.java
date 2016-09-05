@@ -1,19 +1,20 @@
 package com.yy;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-import org.springframework.cloud.netflix.turbine.EnableTurbine;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.StandardEnvironment;
 
-@SpringBootApplication
-@EnableHystrixDashboard
-@EnableEurekaClient
-@EnableTurbine
+@Configuration
+@EnableAutoConfiguration
+@EnableTurbineStream
+@EnableDiscoveryClient
 public class AppRun {
 
 	public static void main(String[] args) {
-        new SpringApplicationBuilder(AppRun.class).web(true).run(args);
+		boolean cloudEnvironment = new StandardEnvironment().acceptsProfiles("cloud");
+		new SpringApplicationBuilder(AppRun.class).web(!cloudEnvironment).run(args);
 	}
-
 }
