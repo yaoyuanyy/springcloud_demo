@@ -1,20 +1,15 @@
 package com.yy;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.StandardEnvironment;
+import org.springframework.cloud.netflix.turbine.EnableTurbine;
 
-@Configuration
-@EnableAutoConfiguration
-@EnableTurbineStream
-@EnableDiscoveryClient
+@SpringBootApplication
+@EnableTurbine
 public class AppRun {
 
 	public static void main(String[] args) {
-		boolean cloudEnvironment = new StandardEnvironment().acceptsProfiles("cloud");
-		new SpringApplicationBuilder(AppRun.class).web(!cloudEnvironment).run(args);
+		//boolean cloudEnvironment = new StandardEnvironment().acceptsProfiles("cloud");
+		new SpringApplicationBuilder(AppRun.class).web(true).run(args);
 	}
 }
