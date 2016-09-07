@@ -1,7 +1,7 @@
 # springcloud_demo
 
 项目：
-(1)springcloud_demo_registry_center #注册中心
+(1)springcloud_demo_registry_center #eureka注册中心
 
 (2)springcloud_demo_provider #注册服务，服务会向注册中心注册
 
@@ -22,6 +22,12 @@
 (10)springcloud_demo_config #配置仓库
 
 (11)springcloud_demo_gateway #服务网关
+
+(12)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node2
+
+(13)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node3
+
+(14)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node4
 
 测试用例：
 A、查看服务在注册中心的情况
@@ -74,5 +80,12 @@ G、测试springcloud config server and client，启动项目(8),访问地址：
    
 H、测试服务网关zuul，网关相当与古代的关卡或现代的过滤器，本来我是苹果，我告诉网关，我是桃子，而网关告诉外界我是桃子，外界就会把    有关桃子的访问送到网关，网关再传给我，我把桃子吃掉，把桃核回应给外界，哈哈
    启动项目(1)、(2)、(3)、(11)，访问地址：http://localhost:5555/api-a/add?a=1&b=2&accessToken=12，http://localhost:5555/api-a-url/add?a=1&b=2&accessToken=12，http://localhost:5555/api-b/add?a=1&b=2&accessToken=12
+
+I、#eureka注册中心集群测试，启动项目(12)、(13)、(14)，访问地址：http://localhost:1112/，http://localhost:1113/查看服务情况，如    果没有问题，访问启动项目(3)，访问地址：http://localhost:2223/add?a=1&b=2，查看结果，如果正常的话结果：3
+   注意：启动服务前需要配置/etc/hosts文件中添加对hostname和ip的转换
+   127.0.0.1 node2  
+   127.0.0.1 node3 
+   127.0.0.1 node4 
+   windows7下可以通过SwitchHosts工具添加
    
 这里只是简单的说下项目启动，网上很多没有说这个，新手可以看看，入门吧，详细的说明会在csdn上
