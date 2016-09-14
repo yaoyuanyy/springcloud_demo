@@ -131,3 +131,32 @@ I、#eureka注册中心集群测试，启动项目(12)、(13)、(14)，访问地
    windows7下可以通过SwitchHosts工具添加
    
 这里只是简单的说下项目启动，网上很多没有说这个，新手可以看看，入门吧，详细的说明会在csdn上
+
+spring-cloud-bus实例
+在原有项目(8)、(9)基础上添加代码：
+在项目(9)的pom.xml中加入
+```
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+	<exclusions>
+		<exclusion>
+			<artifactId>spring-integration-tuple</artifactId>
+			<groupId>org.springframework.integration</groupId>
+		</exclusion>
+	</exclusions>
+</dependency>
+```
+由于此时引入了amqp，所以你的电脑需要安装rabbitmq，我用的是windows7，所以我用的是rabbitmq-server-3.6.5.exe，正常安装，安装时可能提示需要Erlang，所以下载otp_win64_19.0.exe，安装后再安装rabbitmq-server-3.6.5.exe，然后启动项目(8)、(9)，访问：http://localhost:7002/from，页面显示结果：
+```
+git-dev-2.0
+``` 
+再修改git仓库的文件内容如把git-dev-2.0修改为git-dev_xx-2.0。这时，刷新页面http://localhost:7002/from，观察结果，发现还是:
+```
+git-dev-2.0
+```
+请注意，这时访问url:curl -x post localhost:7002/bus/refresh后，再次访问页面http://localhost:7002/from，你会发现页面显示内容为：
+```
+git-dev_xx-2.0
+```
+在不重启服务的基础上，访问的是最新的内容，这就是spring-cloud-bus的入门实例
