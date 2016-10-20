@@ -30,19 +30,21 @@
 (14)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node4
 
 ## 项目启动步骤说明：
-##spring-cloud-eureka创建服务注册中心和服务注册实例
+## Spring-Cloud-Eureka创建服务注册中心和服务注册实例
    查看服务在注册中心的情况
    需启动项目(1)、(2)，访问注册中心地址：http://localhost:1111
    
-B、测试ribbon负载均衡
+   
+## Spring-Cloud-Netflix-ribbon负载均衡实例
    启动项目(1)、(2)、(3)、(4)，访问地址：http://localhost:3333/add,多刷新几次，之后查看项目(2)、(3)的console日志信息
    会看到：
    ```
    /add, host:hostname, service_id:servicename, result:30
    ```
    注意：项目(2)、(3)的spring.application.name是一样的，server.port不一样
+   
 
-C、测试断路器
+## Spring-Cloud-Netflix-Hystrix断路器实例
    启动项目(1)、(2)、(4)，访问地址：http://localhost:3333/add,正常页面会显示结果：30
    这时关掉项目(2)，再次访问地址：http://localhost:3333/add,如果没有断路器，页面显示：
    ```
@@ -71,19 +73,26 @@ C、测试断路器
    ```
    这说明断路器起了作用
    
-D、测试用feign断路器：与测试ribbon步骤一样，只不过feign是在类上加断路器，这样所有的方法用这一个断路器就可以了，而ribbon是在
+   
+## Spring-Cloud-Netflix-Hystrix feign断路器：
+   与测试ribbon步骤一样，只不过feign是在类上加断路器，这样所有的方法用这一个断路器就可以了，而ribbon是在
    方法上加断路器，一个方法一个，各有优点，实际还要灵活使用
    
-E、测试hystrixdashborad，启动项目(1)、(2)、(4)、(6)，访问地址：http://localhost:3333/add,再访问地址：http://localhost:3335/hystrix，在页面的输入框中输入：http://localhost:3333/hystrix.stream，查看结果
+   
+## Spring-Cloud-Netflix-Hystrix-Dashborad
+   测试hystrixdashborad，启动项目(1)、(2)、(4)、(6)，访问地址：http://localhost:3333/add,再访问地址：http://localhost:3335/hystrix，在页面的输入框中输入：http://localhost:3333/hystrix.stream，查看结果
 
-F、测试turbine，没有调通，启动项目(1)、(2)、(4)、(7)，都运行起来后，访问地址：http://localhost:8080/hystrix后，在输入框中输入
+## Spring-Cloud-Netflix-Hystrix-Dashboard turbine
+   测试turbine，没有调通，启动项目(1)、(2)、(4)、(7)，都运行起来后，访问地址：http://localhost:8080/hystrix后，在输入框中输入
    http://localhost:3333/turbine.stream?cluster=RIBBON-CONSUMER，点击"moniter stream"，显示：
    ```
    Unable to connect to Command Metric Stream.
    ```
    不知道为什么，就是不出现数据图，高手看见，请指点一下
+   
 
-G、测试springcloud config server and client，启动项目(8),访问地址：http://localhost:7001/yy/prod/config-label-test，页面显示
+## Spring-Cloud-Config_Server Client
+   测试springcloud config server and client，启动项目(8),访问地址：http://localhost:7001/yy/prod/config-label-test，页面显示
    ```
    {"name":"yy","profiles":["prod"],
    	"label":"config-label-test",
@@ -119,10 +128,12 @@ G、测试springcloud config server and client，启动项目(8),访问地址：
    ```
    上述配置的master版本，所以页面显示结果是master分支的内容：git-dev-2.0；如果配置的是config-label-test分支，所以页面显示结果是config-label-test分支的内容：git-prod-1.0s
    
-H、测试服务网关zuul，网关相当与古代的关卡或现代的过滤器，本来我是苹果，我告诉网关，我是桃子，而网关告诉外界我是桃子，外界就会把    有关桃子的访问送到网关，网关再传给我，我把桃子吃掉，把桃核回应给外界，哈哈
+## Spring-Cloud-Netflix-Zuul Router and Filter: Zuul
+   测试服务网关zuul，网关相当与古代的关卡或现代的过滤器，本来我是苹果，我告诉网关，我是桃子，而网关告诉外界我是桃子，外界就会把    有关桃子的访问送到网关，网关再传给我，我把桃子吃掉，把桃核回应给外界，哈哈
    启动项目(1)、(2)、(3)、(11)，访问地址：http://localhost:5555/api-a/add?a=1&b=2&accessToken=12，http://localhost:5555/api-a-url/add?a=1&b=2&accessToken=12，http://localhost:5555/api-b/add?a=1&b=2&accessToken=12
 
-I、#eureka注册中心集群测试，启动项目(12)、(13)、(14)，访问地址：http://localhost:1112/，http://localhost:1113/查看服务情况，如    果没有问题，访问启动项目(3)，访问地址：http://localhost:2223/add?a=1&b=2，查看结果，如果正常的话结果：3
+## Spring-Cloud-Eureka Cluster
+   注册中心集群测试，启动项目(12)、(13)、(14)，访问地址：http://localhost:1112/，http://localhost:1113/查看服务情况，如    果没有问题，访问启动项目(3)，访问地址：http://localhost:2223/add?a=1&b=2，查看结果，如果正常的话结果：3
    注意：启动服务前需要配置/etc/hosts文件中添加对hostname和ip的转换
    ```
    127.0.0.1 node2  
@@ -133,7 +144,8 @@ I、#eureka注册中心集群测试，启动项目(12)、(13)、(14)，访问地
    
 这里只是简单的说下项目启动，网上很多没有说这个，新手可以看看，入门吧，详细的说明会在csdn上
 
-## spring-cloud-bus实例
+
+## Spring-Cloud-Bus实例
 在原有项目(8)、(9)基础上添加代码：
 在项目(9)的pom.xml中加入
 ```
