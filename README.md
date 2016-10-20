@@ -29,6 +29,10 @@
 
 (14)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node4
 
+(15)springcloud_demo_stream stream server端
+
+(16)springcloud_demo_stream_consumer stream consumer端
+
 ## 项目启动步骤说明：
 ## Spring-Cloud-Eureka创建服务注册中心和服务注册实例
    查看服务在注册中心的情况
@@ -144,6 +148,19 @@
    
 这里只是简单的说下项目启动，网上很多没有说这个，新手可以看看，入门吧，详细的说明会在csdn上
 
+
+## Spring-Cloud-Stream实例
+启动项目(15)(16)，然后查看(16)的控制台输出日志，如下：
+```
+2016-10-20 14:11:13.802  INFO 9340 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 1235 (http)
+2016-10-20 14:11:13.807  INFO 9340 --- [  restartedMain] com.yy.AppRun                            : Started AppRun in 10.1 seconds (JVM running for 10.769)
+hello world 1476943873882
+hello world 1476943874884
+hello world 1476943875885
+hello world 1476943876886
+hello world 1476943877887
+hello world 1476943878888
+```
 
 ## Spring-Cloud-Bus实例
 在原有项目(8)、(9)基础上添加代码：
