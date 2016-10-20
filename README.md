@@ -153,6 +153,7 @@
 Spring Cloud Stream is a framework for building message-driven microservice applications. 消息的产生到显示过程如图：
 ![消息过程](picture/stream.png) 
 启动项目(15)(16)，然后查看(16)的控制台输出日志，如下：
+本实例的message broker用的是rabbitmq,所以需要安装rabbitmq，我用的是windows7，所以我用的是rabbitmq-server-3.6.5.exe，正常安装，安装时可能提示需要Erlang，所以下载otp_win64_19.0.exe，安装后再安装rabbitmq-server-3.6.5.exe，然后启动项目(15)(16)，然后查看(16)的控制台输出日志，如下：
 ```
 2016-10-20 14:11:13.802  INFO 9340 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 1235 (http)
 2016-10-20 14:11:13.807  INFO 9340 --- [  restartedMain] com.yy.AppRun                            : Started AppRun in 10.1 seconds (JVM running for 10.769)
