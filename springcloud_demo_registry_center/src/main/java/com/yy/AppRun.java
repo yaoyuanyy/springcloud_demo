@@ -11,6 +11,8 @@ public class AppRun {
 		//SpringApplication.run(AppRun.class, args);
         new SpringApplicationBuilder(AppRun.class).web(true).run(args);
 
+		System.out.println("hi");
+
 	}
 }
 
