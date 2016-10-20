@@ -150,6 +150,8 @@
 
 
 ## Spring-Cloud-Stream实例
+Spring Cloud Stream is a framework for building message-driven microservice applications. 消息的产生到显示过程如图：
+![消息过程](picture/stream.png) 
 启动项目(15)(16)，然后查看(16)的控制台输出日志，如下：
 ```
 2016-10-20 14:11:13.802  INFO 9340 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 1235 (http)
