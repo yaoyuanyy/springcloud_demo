@@ -91,7 +91,7 @@
    不知道为什么，就是不出现数据图，高手看见，请指点一下
    
 
-## Spring-Cloud-Config_Server Client
+## Spring-Cloud-Config-Server Client
    测试springcloud config server and client，启动项目(8),访问地址：http://localhost:7001/yy/prod/config-label-test，页面显示
    ```
    {"name":"yy","profiles":["prod"],
