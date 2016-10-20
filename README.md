@@ -29,8 +29,9 @@
 
 (14)springcloud_demo_registry_center_cluster_node2 #eureka注册中心 node4
 
-## 测试用例：
-A、查看服务在注册中心的情况
+## 项目启动步骤说明：
+##spring-cloud-eureka创建服务注册中心和服务注册实例
+   查看服务在注册中心的情况
    需启动项目(1)、(2)，访问注册中心地址：http://localhost:1111
    
 B、测试ribbon负载均衡
