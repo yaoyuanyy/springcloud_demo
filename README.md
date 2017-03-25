@@ -193,3 +193,9 @@ git-dev-2.0
 git-dev_xx-2.0
 ```
 在不重启服务的基础上，访问的是最新的内容，这就是spring-cloud-bus的入门实例
+
+#### 参考：
+config-clinet、config-server、github、webhook、bus自动监听repo的push操作的配置：
+1. http://zoltanaltfatter.com/2016/06/30/centralized-configuration-with-spring-cloud-config/
+2. http://tech.asimio.net/2017/02/02/Refreshable-Configuration-using-Spring-Cloud-Config-Server-Spring-Cloud-Bus-RabbitMQ-and-Git.html
+

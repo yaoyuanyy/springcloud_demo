@@ -6,10 +6,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>Brixton.SR4</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<groupId>com.yy</groupId>
+		<artifactId>springcloud_demo_parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<build>
@@ -18,21 +17,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<!--skip deploy (this is just a test module) -->
-				<artifactId>maven-deploy-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
+
 		</plugins>
 	</build>
 
@@ -56,7 +41,7 @@
    		</dependency>
 	</dependencies>
 
-	<repositories>
+	<!--<repositories>
 		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
@@ -99,5 +84,5 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories>-->
 </project>
