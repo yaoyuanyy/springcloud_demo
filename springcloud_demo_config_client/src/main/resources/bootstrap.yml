@@ -1,0 +1,29 @@
+server:
+  port: 7002
+
+
+spring:
+  application:
+    name: yy
+  profiles:
+#这里配置**,程序中的配置值就去git库中的yy-**.properties(yml)文件中找
+    active: native
+  cloud:
+    config:
+      uri: http://localhost:7001/
+#      discovery: #eureka的配置
+#        enabled: true
+    bus:
+      destination: yyll
+logging:
+  level: debug
+debug: true
+
+#eureka的配置
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:1111/eureka/
+
+
+

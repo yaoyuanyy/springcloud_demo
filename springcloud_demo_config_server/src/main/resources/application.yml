@@ -1,0 +1,47 @@
+server:
+  port: 7001
+
+#(1)github
+#spring.cloud.config.server.git.uri=https://github.com/yaoyuanyy/springcloud_demo_repo.git
+#spring.cloud.config.server.git.searchPaths=config-repo
+##spring.cloud.config.server.git.repos.dev.uri=https://github.com/yaoyuanyy/springcloud_demo.git
+##spring.cloud.config.server.git.repos.dev.pattern=*/config-repo/*,*special*
+#spring.cloud.config.server.git.username=yaoyuanyy
+#spring.cloud.config.server.git.password=******
+
+
+#(2)gitlab
+#spring.cloud.config.server.git.uri=http://10.69.205.31:8886/yaoliang/test_repo.git
+#spring.cloud.config.server.git.searchPaths=config-repo
+##spring.cloud.config.server.git.repos.dev.uri=https://github.com/yaoyuanyy/springcloud_demo.git
+##spring.cloud.config.server.git.repos.dev.pattern=*/config-repo/*,*special*
+#spring.cloud.config.server.git.username=yaoliang
+#spring.cloud.config.server.git.password=123.gome
+
+#(3)从本地加载。注意：这里有个bug，这个配置所在的文件的格式需要application.yml，不能是application.properties(这个格式下(3)方式配置不起作用)
+spring:
+  profiles:
+    active: native
+  cloud:
+    bus:
+      destination: yyll
+    config:
+      server:
+        native:
+#(3)-1 直接指定文件位置查找配置文件，注意：spring.profiles.active要设置为native
+          search-locations: file:///d:/gome_doc
+#(3)-2 指定从项目(springcloud_demo_config_server)位置下查找配置文件，注意：spring.profiles.active要设置为native
+#          search-locations: file:///${user.dir}/../springcloud_demo_config_server/doc
+#(3)-3 从当前项目的src/main/resources下查找配置文件，注意：spring.profiles.active要设置为native
+#          search-locations: classpath:/
+
+
+
+#eureka配置
+#eureka.client.serviceUrl.defaultZone=http://localhost:1111/eureka/
+
+#spring.rabbitmq.host=localhost
+#spring.rabbitmq.port=5672
+#spring.rabbitmq.username=guest
+#spring.rabbitmq.password=guest
+
