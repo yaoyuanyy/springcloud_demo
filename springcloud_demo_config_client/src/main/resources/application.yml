@@ -1,0 +1,13 @@
+server:
+  port: 7002
+
+spring:
+  profiles:
+#这里配置**,程序中的属性值就去git库中的yy-**.properties(yml)文件中找
+    active: native
+
+
+logging:
+  level: debug
+
+debug: true
