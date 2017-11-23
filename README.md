@@ -33,6 +33,9 @@
 
 (16)springcloud_demo_stream_consumer stream consumer端
 
+(17)springcloud_demo_sleuth
+
+
 ## 项目启动步骤说明：
 ## Spring-Cloud-Eureka创建服务注册中心和服务注册实例
    查看服务在注册中心的情况
@@ -199,3 +202,24 @@ config-clinet、config-server、github、webhook、bus自动监听repo的push操
 1. http://zoltanaltfatter.com/2016/06/30/centralized-configuration-with-spring-cloud-config/
 2. http://tech.asimio.net/2017/02/02/Refreshable-Configuration-using-Spring-Cloud-Config-Server-Spring-Cloud-Bus-RabbitMQ-and-Git.html
 
+## Spring-Cloud-Sleuth实例
+启动项目(1)、(2)、(4)、(17)，访问地址：http://localhost:3333/add, 再访问访问地址：http://localhost:3337
+![服务追踪](picture/sleuth.png) 
+
+(2)、(4)项目分别添加
+```
+ <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-zipkin</artifactId>
+    <version>RELEASE</version>
+</dependency>
+```
+application.yml加入
+```
+spring:
+  zipkin:
+    base-url: http://localhost:3337
+  sleuth:
+    sampler:
+      percentage: 1.0
+```
