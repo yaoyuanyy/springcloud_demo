@@ -1,19 +1,19 @@
-package com.yy.model;
+package com.yy.vo;
 
 import java.io.Serializable;
 
 /**
  * Created by skyler on 2017/4/13.
  */
-public class Employee implements Serializable{
+public class EmployeeVO implements Serializable{
 
     private long id;
     private String name;
     private int age;
 
-    public Employee() {}
+    public EmployeeVO() {}
 
-    public Employee(long id, String name, int age) {
+    public EmployeeVO(long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;

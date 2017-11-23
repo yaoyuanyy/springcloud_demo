@@ -5,15 +5,15 @@ import java.io.Serializable;
 /**
  * Created by skyler on 2017/4/13.
  */
-public class Consumer implements Serializable{
+public class Employee implements Serializable{
 
     private long id;
     private String name;
     private int age;
 
-    public Consumer() {}
+    public Employee() {}
 
-    public Consumer(long id, String name, int age) {
+    public Employee(long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;

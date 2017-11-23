@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 
 @RestController
-public class ConsumerController {
+public class EmployeeController {
 
 	@SuppressWarnings("unused")
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -36,8 +36,8 @@ public class ConsumerController {
     	return computeService.addService();
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@RequestBody Employee employee, HttpServletRequest request) throws URISyntaxException {
-        return computeService.createService(employee);
-    }
+//    @RequestMapping(value = "/create", method = RequestMethod.POST)
+//    public String create(@RequestBody Employee employee, HttpServletRequest request) throws URISyntaxException {
+//        return computeService.createService(employee);
+//    }
 }

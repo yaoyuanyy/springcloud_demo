@@ -37,8 +37,8 @@ public class ConsumerController {
     	return computeService.addService();
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@RequestBody Employee employee, HttpServletRequest request) throws URISyntaxException {
-        return computeService.createService(employee);
-    }
+//    @RequestMapping(value = "/create", method = RequestMethod.POST)
+//    public String create(@RequestBody Employee employee, HttpServletRequest request) throws URISyntaxException {
+//        return computeService.createService(employee);
+//    }
 }
