@@ -36,6 +36,17 @@
 	</dependencies>
 
     <build>
+        <!-- 打包时排除某些文件，多文件用逗号分隔 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/test.properties, **/test2.properties</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -49,5 +60,6 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 </project>
