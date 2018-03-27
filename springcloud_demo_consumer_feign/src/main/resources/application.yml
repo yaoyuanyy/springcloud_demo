@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: feign-consumer
+server:
+  port: 3334
+
+logging:
+  level:
+    root: info
+    org.springframework.cloud: debug
+    com.netflix.discovery: debug
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

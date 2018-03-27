@@ -1,17 +1,21 @@
 spring:
   application:
     name: service1
-  zipkin:
-    base-url: http://localhost:3337
-  sleuth:
-    sampler:
-      percentage: 1.0
+#  zipkin:
+#    base-url: http://localhost:3337
+#  sleuth:
+#    sampler:
+#      percentage: 1.0
 
 server:
   port: 2222
 
-
-eureka.:
+eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
+logging:
+  level:
+    root: info
+    org.springframework.cloud: debug
+    com.netflix.discovery: debug
