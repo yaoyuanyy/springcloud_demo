@@ -7,11 +7,23 @@ server:
 
 eureka:
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     fetch-registry: false
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
 
+
+
+
 logging:
   level:
-    root: debug
+    root: info
+
+#    com.netflix.discover: debug
+    com.netflix.eureka.registry.ResponseCacheImpl: info
+    com.netflix.discovery.shared.NamedConnectionPool: info
+    com.netflix: debug
+    com.sun.jersey: debug
+    org.springframework.cloud.netflix: debug
+    org.apache.catalina.authenticator: debug
+
