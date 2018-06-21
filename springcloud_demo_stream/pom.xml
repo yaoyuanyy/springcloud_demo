@@ -15,21 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>spring-integration-tuple</artifactId>
-					<groupId>org.springframework.integration</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-stream-kafka</artifactId> 
-			<exclusions> <exclusion> <artifactId>scala-library</artifactId> <groupId>org.scala-lang</groupId> 
-			</exclusion> </exclusions> </dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
+			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
