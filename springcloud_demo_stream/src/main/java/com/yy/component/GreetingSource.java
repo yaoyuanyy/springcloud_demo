@@ -7,7 +7,7 @@ import org.springframework.integration.annotation.InboundChannelAdapter;
 @EnableBinding(Source.class)
 public class GreetingSource {
 
-    @InboundChannelAdapter(Source.OUTPUT)
+    //@InboundChannelAdapter(Source.OUTPUT)
     public String greet() {
         return "hello world " + System.currentTimeMillis();
     }
