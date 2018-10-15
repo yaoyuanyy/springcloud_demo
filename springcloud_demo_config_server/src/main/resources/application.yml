@@ -28,7 +28,7 @@ spring:
           username: yaoliang
           password: ******
 
-#(3)´Ó±¾µØ¼ÓÔØ¡£×¢Òâ£ºÕâÀïÓĞ¸öbug£¬Õâ¸öÅäÖÃËùÔÚµÄÎÄ¼şµÄ¸ñÊ½ĞèÒªapplication.yml£¬²»ÄÜÊÇapplication.properties(Õâ¸ö¸ñÊ½ÏÂ(3)·½Ê½ÅäÖÃ²»Æğ×÷ÓÃ)
+#(3)ä»æœ¬åœ°åŠ è½½ã€‚æ³¨æ„ï¼šè¿™é‡Œæœ‰ä¸ªbugï¼Œè¿™ä¸ªé…ç½®æ‰€åœ¨çš„æ–‡ä»¶çš„æ ¼å¼éœ€è¦application.ymlï¼Œä¸èƒ½æ˜¯application.properties(è¿™ä¸ªæ ¼å¼ä¸‹(3)æ–¹å¼é…ç½®ä¸èµ·ä½œç”¨)
 #  profiles:
 #    active: native
 #  cloud:
@@ -37,22 +37,19 @@ spring:
 #    config:
 #      server:
 #        native:
-##(3)-1 Ö±½ÓÖ¸¶¨ÎÄ¼şÎ»ÖÃ²éÕÒÅäÖÃÎÄ¼ş£¬×¢Òâ£ºspring.profiles.activeÒªÉèÖÃÎªnative
+##(3)-1 ç›´æ¥æŒ‡å®šæ–‡ä»¶ä½ç½®æŸ¥æ‰¾é…ç½®æ–‡ä»¶ï¼Œæ³¨æ„ï¼šspring.profiles.activeè¦è®¾ç½®ä¸ºnative
 #          search-locations: file:///d:/gome_doc
-#(3)-2 Ö¸¶¨´ÓÏîÄ¿(springcloud_demo_config_server)Î»ÖÃÏÂ²éÕÒÅäÖÃÎÄ¼ş£¬×¢Òâ£ºspring.profiles.activeÒªÉèÖÃÎªnative
+#(3)-2 æŒ‡å®šä»é¡¹ç›®(springcloud_demo_config_server)ä½ç½®ä¸‹æŸ¥æ‰¾é…ç½®æ–‡ä»¶ï¼Œæ³¨æ„ï¼šspring.profiles.activeè¦è®¾ç½®ä¸ºnative
 #          search-locations: file:///${user.dir}/../springcloud_demo_config_server/doc
-#(3)-3 ´Óµ±Ç°ÏîÄ¿µÄsrc/main/resourcesÏÂ²éÕÒÅäÖÃÎÄ¼ş£¬×¢Òâ£ºspring.profiles.activeÒªÉèÖÃÎªnative
+#(3)-3 ä»å½“å‰é¡¹ç›®çš„src/main/resourcesä¸‹æŸ¥æ‰¾é…ç½®æ–‡ä»¶ï¼Œæ³¨æ„ï¼šspring.profiles.activeè¦è®¾ç½®ä¸ºnative
 #          search-locations: classpath:/
 
 
 
-#eurekaÅäÖÃ
+#eurekaé…ç½®
 #eureka.client.serviceUrl.defaultZone=http://localhost:1111/eureka/
 
 #spring.rabbitmq.host=localhost
 #spring.rabbitmq.port=5672
 #spring.rabbitmq.username=guest
 #spring.rabbitmq.password=guest
-
-
-
