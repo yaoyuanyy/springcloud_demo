@@ -25,8 +25,8 @@ spring:
         git:
           uri: http://10.69.205.31:8886/yaoliang/test_repo.git
           search-paths: config-repo
-          username: yaoliang
-          password: ******
+          username: yaoyuanyy
+          password: github_1
 
 #(3)从本地加载。注意：这里有个bug，这个配置所在的文件的格式需要application.yml，不能是application.properties(这个格式下(3)方式配置不起作用)
 #  profiles:

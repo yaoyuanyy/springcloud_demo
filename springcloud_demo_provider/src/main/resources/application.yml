@@ -13,7 +13,12 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      zone2: http://localhost:1111/eureka/
+    region: skyler-dev
+    availability-zones:
+      skyler-dev: zone1,zone2
+  instance:
+    metadata-map.zone: zone2
 logging:
   level:
     root: info
