@@ -9,4 +9,7 @@
 /bin/
 /log/
 *.iml
+.DS_Store
+/*/.DS_Store
+
 
