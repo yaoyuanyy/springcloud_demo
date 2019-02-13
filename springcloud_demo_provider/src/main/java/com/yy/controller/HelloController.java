@@ -32,6 +32,11 @@ public class HelloController {
         logger.info(info.getHomePageUrl());*/
         Integer r = a + b;
         logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
+        try {
+            Thread.sleep(1000*20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return r;
     }
 

@@ -1,5 +1,6 @@
 server:
   port: 5555
+  connection-timeout:
 
 spring:
   application:
@@ -24,6 +25,21 @@ zuul:
       path: /api-b/**
       serviceId: service2
       stripPrefix: true
+#  ribbon-isolation-strategy: thread
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
+## 此属性放在zuul里无效，因为zuul
+#hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 5000
+hystrix.command.user-service.execution.isolation.semaphore.maxConcurrentRequests: 5000
+#默认20 per 10s--->1000 per 10s
+hystrix.command.default.circuitBreaker.requestVolumeThreshold: 10
+#默认50%--->80% 10 seconds
+hystrix.command.default.circuitBreaker.errorThresholdPercentage: 80
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 8000
+
 
 eureka:
   client:
@@ -31,3 +47,11 @@ eureka:
       defaultZone: http://47.98.189.37:20280/eureka/
   instance:
     prefer-ip-address: true
+
+
+
+
+logging:
+  level:
+    root: info
+    com.netflix.hystrix: debug
