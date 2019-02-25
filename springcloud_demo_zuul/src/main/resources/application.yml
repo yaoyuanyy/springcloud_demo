@@ -1,6 +1,5 @@
 server:
   port: 5555
-  connection-timeout:
 
 spring:
   application:
@@ -27,10 +26,10 @@ zuul:
       stripPrefix: true
 #  ribbon-isolation-strategy: thread
 
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
+# hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
 ## 此属性放在zuul里无效，因为zuul
 #hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 5000
-hystrix.command.user-service.execution.isolation.semaphore.maxConcurrentRequests: 5000
+hystrix.command.default.execution.isolation.semaphore.maxConcurrentRequests: 5000
 #默认20 per 10s--->1000 per 10s
 hystrix.command.default.circuitBreaker.requestVolumeThreshold: 10
 #默认50%--->80% 10 seconds
