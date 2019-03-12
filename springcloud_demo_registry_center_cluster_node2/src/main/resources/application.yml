@@ -23,7 +23,6 @@ eureka:
     region: beijing
     availability-zones:
       beijing: zone2,zone3
-    prefer-same-zone-eureka: true
   server:
     enable-self-preservation: false
 
