@@ -223,3 +223,36 @@ spring:
     sampler:
       percentage: 1.0
 ```
+
+## consumer优先调用同region同zone的server服务 
+
+- Eureka(2个)+Server(2个,实例名相同)+Ribbon依据zone、region实现consumer优先调用同zone同region的server服务
+
+### 功能实现分支
+
+20190312-zone-region 
+
+### 功能实现涉及服务
+
+1. springcloud_demo_registry_center_cluster_node2
+2. springcloud_demo_registry_center_cluster_node3
+3. springcloud_demo_provider
+4. springcloud_demo_provider2
+5. springcloud_demo_consumer_ribbon
+
+
+### 实现步骤
+1. 依次启动服务
+2. curl -x -i GET http://localhost:6002/getZone，多次访问
+
+你将会看到页面输出：
+zone2
+
+此时，kill springcloud_demo_provider服务，再次访问http://localhost:6002/getZone，
+你将会看到页面输出：
+zone3
+
+结果说明
+springcloud_demo_consumer_ribbon和springcloud_demo_provider是在同一个Zone(zone2)中，优先访问同Zone服务；
+当没有同Zone服务时，再访问同region下不同Zone的服务
+
