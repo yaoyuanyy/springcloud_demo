@@ -6,14 +6,5 @@ spring:
 server:
   port: 2222
 
-eureka:
-  client:
-    serviceUrl:
-#      defaultZone: http://47.98.189.37:20280/eureka/
-      zone2: http://47.98.189.37:20280/eureka/
-    region: beijing
-    availability-zones.beijing: zone2,zone1
-  instance:
-    prefer-ip-address: true
-    metadata-map.zone: zone3
+
 

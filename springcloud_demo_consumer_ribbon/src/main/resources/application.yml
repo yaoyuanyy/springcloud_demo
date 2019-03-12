@@ -1,16 +1,29 @@
 spring:
   application:
-    name: ribbon-consumer
-  zipkin:
-    base-url: http://localhost:3337
-  sleuth:
-    sampler:
-      percentage: 1.0
+    name: ribbon
+#  zipkin:
+#    base-url: http://localhost:3337
+#  sleuth:
+#    sampler:
+#      percentage: 1.0
 
 server:
-  port: 3333
+  port: 2224
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+#      defaultZone: http://47.98.189.37:20280/eureka/
+      zone2: http://localhost:20282/eureka/
+      zone3: http://localhost:20283/eureka/
+    region: beijing
+    availability-zones.beijing: zone2,zone3
+    prefer-same-zone-eureka: true
+  instance:
+    prefer-ip-address: true
+    metadata-map.zone: zone2
+logging:
+  level:
+    root: info
+    org.springframework.cloud: debug
+    com.netflix.discovery: debug

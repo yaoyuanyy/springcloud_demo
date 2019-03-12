@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 //@EnableHystrix包含@EnableCircuitBreaker
 @EnableHystrix 
-public class AppRun {
+public class RibbonApp {
 	
 	@Bean
 	@LoadBalanced
@@ -21,7 +21,7 @@ public class AppRun {
 	}
 
 	public static void main(String[] args) {
-        new SpringApplicationBuilder(AppRun.class).web(true).run(args);
+        new SpringApplicationBuilder(RibbonApp.class).web(true).run(args);
 	}
 
 }

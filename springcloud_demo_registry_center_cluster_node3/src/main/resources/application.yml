@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: registry_center_3
+
+server:
+  port: 20283
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    # 设置是否将自己作为客户端注册到注册中心（缺省true）
+    # 这里为不需要（查看@EnableEurekaServer注解的源码，会发现它间接用到了@EnableDiscoveryClient）
+    register-with-eureka: true
+    # 设置是否从注册中心获取注册信息（缺省true）
+    # 因为这是一个单点的EurekaServer，不需要同步其它EurekaServer节点的数据，故设为false
+    fetch-registry: true
+    service-url:
+      zone2: http://localhost:20282/eureka/
+      zone3: http://localhost:20283/eureka/
+    region: beijing
+    availability-zones:
+      beijing: zone3,zone2
+    prefer-same-zone-eureka: true
+  server:
+    enable-self-preservation: false
+
+
+
+
+
+logging:
+  level:
+    root: info
+
+    #    com.netflix.discover: debug
+    com.netflix.eureka.registry.ResponseCacheImpl: info
+    com.netflix.discovery.shared.NamedConnectionPool: info
+    com.netflix: debug
+    com.sun.jersey: debug
+    org.springframework.cloud.netflix: debug
+
