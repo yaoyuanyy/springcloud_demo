@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: service1
+#  zipkin:
+#    base-url: http://localhost:3337
+#  sleuth:
+#    sampler:
+#      percentage: 1.0
+
+server:
+  port: 2223
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://47.98.189.37:20280/eureka/
+#      zone2: http://47.98.189.37:20280/eureka/
+#    region: skyler-dev
+#    availability-zones:
+#      skyler-dev: zone1,zone2
+#  instance:
+#    metadata-map.zone: zone2
+logging:
+  level:
+    root: info
+    org.springframework.cloud: debug
+    com.netflix.discovery: debug

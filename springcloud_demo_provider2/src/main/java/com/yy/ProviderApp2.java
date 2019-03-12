@@ -2,14 +2,14 @@ package com.yy;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-public class ProviderAppRun {
+@EnableEurekaClient
+public class ProviderApp2 {
 
 	public static void main(String[] args) {
-        new SpringApplicationBuilder(ProviderAppRun.class).web(true).run(args);
+        new SpringApplicationBuilder(ProviderApp2.class).web(true).run(args);
 	}
 
 }
