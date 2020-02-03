@@ -9,8 +9,8 @@ eureka:
   client:
     serviceUrl:
 #      defaultZone: http://47.98.189.37:20280/eureka/
-      zone2: http://localhost:20282/eureka/
-      zone3: http://localhost:20283/eureka/
+      zone2: http://47.98.189.37:20282/eureka/
+      zone3: http://47.98.189.37:20283/eureka/
     region: beijing
     availability-zones.beijing: zone2,zone3
     prefer-same-zone-eureka: true
